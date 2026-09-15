@@ -1,51 +1,51 @@
 # Doublier
 
-**Verified personal digital twins.**
+Anyone can now build an agent that sounds like you. Nobody can prove it is you.
 
-> **Status:** Full implementation specification complete. Not yet built.
+Feed a model enough of your writing and it will answer as you, in your cadence, with your opinions, to anyone who asks. Dozens of products do this well. Not one of them can give the person on the receiving end a way to check.
 
----
+That gap is the entire design problem, and it is about to matter a great deal. A digital twin is only useful where it acts while you are absent — answering, committing, representing. The moment it acts unsupervised, the person receiving it needs two things established that no current system establishes: that this twin genuinely originates from the person it claims, and that what it just said is something that person would stand behind.
 
-## The word that matters
+Without both, a twin is an impersonation that happens to be authorised. The authorisation is invisible to everyone except the impersonator.
 
-There is no shortage of systems that will build an agent in your likeness. Feed them your writing and they produce something that sounds like you, answers as you, and represents itself as you to anyone who asks.
-
-None of them can prove it.
-
-That gap is the whole design problem. A digital twin is only useful where it acts without you present — answering, committing, representing. And the moment it acts unsupervised, the receiving party needs to know two things that no current system establishes: that this twin genuinely originates from the person it claims, and that what it just said is something that person would stand behind.
-
-Without those, a twin is an impersonation you happened to authorise.
-
-**Doublier** is an attempt at the verified case: a twin whose provenance is checkable by the person receiving it, not merely asserted by the person who made it.
+Doublier is an attempt at the verified case — a twin whose provenance the recipient can check, rather than one whose authenticity the maker merely asserts.
 
 ---
 
-## Design constraints
+## Provenance
 
-**Provenance is external.** The twin cannot be the authority on whether it is authentic. Verification has to be resolvable by the recipient against something the principal controls and the twin cannot forge.
+The twin cannot be the authority on whether it is genuine. This sounds obvious and is violated everywhere: almost every agent today vouches for itself, which is the same security model as a stranger showing you a badge they printed.
 
-**Authority is bounded and legible.** A twin holds a defined scope — what it may speak to, what it may commit, where it must defer. The bound is visible to the receiving party, not buried in the principal's settings. A recipient should be able to see that a twin is not authorised on a subject without having to test it.
-
-**Silence over improvisation.** Outside its scope the twin declines. It does not extrapolate the principal's likely view. A twin that guesses well is more dangerous than one that guesses badly, because nobody catches it.
-
-**Revocation is immediate and total.** The principal withdraws the twin and every outstanding representation drops with it. A twin that survives its own revocation in some cache is not a twin, it is a leak.
+Verification has to resolve against something the principal controls and the twin cannot forge, and it has to be checkable by the recipient without the principal's involvement — otherwise you have reinvented the phone call the twin was supposed to replace.
 
 ---
 
-## Standing
+## Scope
 
-This reached full implementation-book stage — the specification is complete and internally consistent, covering the verification model, the authority boundary and the revocation path.
+A twin holds a defined authority: what it may speak to, what it may commit, where it must defer. The boundary is visible to the receiving party rather than buried in the principal's settings. Someone should be able to see that a twin has no authority on a subject without having to test it and find out.
 
-It has not been built. The specification is the artefact, and it is described here as exactly that.
+Outside that scope the twin declines. It does not extrapolate what the principal would probably think.
 
----
-
-## Related
-
-- [AIMAS](https://github.com/ezz-ae/aimas-protocol) — confidence as a first-class value, the same premise applied to intent
+This is the constraint people push back on hardest, and it is the one worth defending. A twin that guesses well is more dangerous than one that guesses badly — because the bad guesser gets caught immediately and the good one accumulates commitments nobody made until the day one of them is expensive.
 
 ---
 
-Architected by Mahmoud Ezz · [ezz.ae](https://ezz.ae)
+## Revocation
+
+The principal withdraws the twin and every outstanding representation drops with it, immediately and completely.
+
+A twin that survives its own revocation in somebody's cache is not a twin. It is a leak that used to have permission.
+
+---
+
+## Status
+
+The specification is complete — verification model, authority boundary, revocation path — and internally consistent, at full implementation-book stage.
+
+It has not been built. The specification is the artefact, and that is the whole of the claim.
+
+---
+
+Written by Mahmoud Ezz · [ezz.ae](https://ezz.ae) · [AIMAS](https://github.com/ezz-ae/aimas-protocol)
 
 All rights reserved. See [LICENSE](LICENSE).
